@@ -1,0 +1,104 @@
+$white: #FFFFFF;
+$dark-gray: #3D3D3D;
+$black: #000000;
+$flamenco: #FF7B05;
+$spring-green: #05FF5B;
+$shamrock: #26C09D;
+$electric-violet: #DA0CED;
+
+$header-height: 50px;
+$header-height-tall: 75px;
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+div.tux-box {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a0/Tux-Icon.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    // min-height: 250px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+div.main-body {
+    width: 100%;
+    margin-top: 150px;
+}
+
+nav.page-nav-bar {
+    padding-right: 16px;
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    background: $electric-violet;
+    padding: 16px;
+
+    
+    ul {
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        width: 100%;
+        height: 0px;
+        list-style: none;
+        li {
+            vertical-align: middle;
+            line-height: $header-height-tall;
+            float: left;
+            width: 25%;
+            height: $header-height-tall;              
+            &.active {
+                border-radius: 16px;
+                background-color: $flamenco;
+            }
+        }
+    }
+}
+
+
+    
+header.page-header {
+    text-align: center;
+}
+
+div.double-column-div {
+    background: $spring-green;
+    height: 160px;
+    padding: 20px;
+    border-radius: 32px;
+}
+
+section.about-us-section {
+    float: left;
+    margin: 0 1.5%;
+    width: 63%;
+    text-align: center;
+}
+
+aside.did-you-know {
+    text-align: center;
+    float: right;
+    margin: 0 1.5%;
+    width: 30%;
+    background: $shamrock;
+    border-radius: 32px;
+    top:50%;
+    transform: translateY(20%);
+}
+
+hr {
+    float: center;
+    &.divider {
+        border: 0;
+        width: 50%;
+        height: 1px;
+        background-color: $dark-gray;
+    }
+}
