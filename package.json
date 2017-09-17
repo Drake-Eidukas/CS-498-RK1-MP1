@@ -1,7 +1,7 @@
 {
-  "name": "mp0_starter_17",
+  "name": "noot_lab_webpage",
   "version": "1.0.0",
-  "description": "University of Illinois - CS498RK1 MP0 starter files",
+  "description": "Noot Lab's main webpage.",
   "main": "index.js",
   "scripts": {
     "watch": "webpack -d --watch",
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uiuc-web-programming/mp0_starter_17.git"
+    "url": "git+https://github.com/Drake-Eidukas/CS-498-RK1-MP1.git"
   },
-  "author": "Simon Lu",
-  "license": "ISC",
+  "author": "Drake Eidukas",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/uiuc-web-programming/mp0_starter_17/issues"
+    "url": "https://github.com/Drake-Eidukas/CS-498-RK1-MP1/issues"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",
@@ -35,5 +35,5 @@
   "dependencies": {
     "normalize.css": "^6.0.0"
   },
-  "homepage": "https://github.com/uiuc-web-programming/mp0_starter_17#readme"
+  "homepage": "https://github.com/Drake-Eidukas/CS-498-RK1-MP1#readme"
 }
