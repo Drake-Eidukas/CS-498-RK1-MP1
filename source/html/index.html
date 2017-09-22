@@ -28,21 +28,26 @@
                 </div>
                 <div class="column-center-skinny shrink">
                     <div class="vertical-center-box shrink">
-                        <span class ="vertical-bar shrink">&#124;</span>
+                        <span class="vertical-bar shrink">&#124;</span>
                     </div>
                 </div>
                 <div class="column-right-wide shrink">
                     <div class="vertical-center-box vertical-center-left shrink">
-                        <h1 id="logo-title shrink"> The Cloud Factory</h1>
+                        <h1 id="logo-title" class="shrink"> The Cloud Factory</h1>
                     </idiv>
                 </div>
             </div>
         </div>
-        <ul>
+         <ul> 
             <!-- This is where the carosel will be. -->
-            <li class="active">Products</li>
-            <li>Pricing</li>
-            <li>Getting Started</li>
+            <li class="no-width" id="cloud-bottom">
+                <div class="vertical-center-box"  id="left-bottom-cloud-box">
+                    <i class="fa fa-cloud not-selectable" aria-hidden="true" id="cloud-svg-small">      &#124;</i>
+                </div>
+            </li>
+            <li class="selectable active">Products</li>
+            <li class="selectable">Pricing</li>
+            <li class="selectable">Getting Started</li>
         </ul>
     </nav>
 
@@ -52,6 +57,9 @@
     <div class="main-body">
         <header class="page-header">
 
+            <div height="512px" width="100%" overflow="hidden">
+                <video height="512px" width="100%" src="assets/clouds.mp4" autoplay="true" loop="loop"></video>
+            </div>
             <!-- 
                 Put in a background photo here?
                 I'm thinking, wide, tallish background picture, white text.

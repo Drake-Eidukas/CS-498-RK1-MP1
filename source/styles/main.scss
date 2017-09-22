@@ -11,20 +11,24 @@ $selected-orange: #f8991d;
 
 $header-height: 50px;
 $header-height-tall: 100px;
-$animation-time: 1s;
-$short-animation-time: 0.005s;
+$animation-time: .5s;
+$short-animation-time: 0.255s;
 
 
 #cloud-svg {
     font-size: 128px;
 }
 
+#cloud-svg-small {
+    font-size: 48px;
+}
+
 .shrink {
-    -webkit-transition: height $animation-time, visibility $short-animation-time;
-    -moz-transition: height $animation-time, visibility $short-animation-time;
-    -ms-transition: height $animation-time, visibility $short-animation-time;
-    -o-transition: height $animation-time, visibility $short-animation-time;
-    transition: height $animation-time, visibility $short-animation-time;
+    -webkit-transition: height $animation-time;
+    -moz-transition: height $animation-time;
+    -ms-transition: height $animation-time;
+    -o-transition: height $animation-time;
+    transition: height $animation-time;
 }
 
 .gone {
@@ -43,6 +47,7 @@ body {
 h1#logo-title {
     text-align: left;
     margin-right: auto;
+    font-size: 48px
 }
 
 div.vertical-center-box {
@@ -52,12 +57,16 @@ div.vertical-center-box {
     &.vertical-center-left {
         justify-content: flex-start !important;
     }
+    &#left-bottom-cloud-box{
+        height: $header-height-tall;
+        justify-content: center;
+    }
 }
 
 
 div.top-box {
     width: 100%;
-    height: 256px;
+    height: 300px;
 }
 
 div.tux-box {
@@ -75,7 +84,6 @@ div.tux-box {
 
 div.main-body {
     width: 100%;
-    margin-top: 150px;
 }
 
 nav.page-nav-bar {
@@ -122,11 +130,30 @@ nav.page-nav-bar {
             vertical-align: middle;
             line-height: $header-height-tall;
             float: left;
-            width: 33%;
-            height: $header-height-tall;              
+            width: 30%;
+            height: $header-height-tall; 
+            
+            -webkit-transition: width $short-animation-time;
+            -moz-transition: width $short-animation-time;
+            -ms-transition: width $short-animation-time;
+            -o-transition: width $short-animation-time;
+            transition: width $short-animation-time;
+            
             &.active {
                 background-color: $selected-pastel-navy;
                 color: $selected-orange;
+            }
+
+            &.selectable {
+
+            }
+
+            &.no-width {
+                width: 0%;
+            }
+
+            &.not-selectable {
+                width: 10%;
             }
         }
     }
