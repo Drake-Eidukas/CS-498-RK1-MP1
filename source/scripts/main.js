@@ -1,7 +1,29 @@
-var originalNavBarHeight = document.getElementById('nav-cloud-box').style.height = '0px'
+var originalNavBarHeight = document.getElementById('nav-cloud-box').style.height;
+
+var modal = document.getElementById('factory-modal-pic');
+modal.style.display = 'none'
+var factoryPic = document.getElementById('normal-factory-pic')
+
+factoryPic.onclick = function () {
+    modal.style.display = 'block'
+    console.log('factorypic clicked')
+}
+
+window.onclick = function (event) {
+    console.log('window clicked')
+    if (event.target == modal) {
+        modal.style.display = 'none'
+    }
+}
 
 document.body.onscroll = function (event) {
     resizeNavBar(document.body.scrollTop > 50)
+    changeSelectedByScroll(document.body.scrollTop)
+}
+
+function changeSelectedByScroll (scrolled) {
+    if (scrolled > 0)
+    console.log(scrolled)
 }
 
 function resizeNavBar(shrink) {
@@ -37,20 +59,25 @@ function resizeNavBar(shrink) {
         document.getElementById('cloud-bottom').style.width = '0%'
         document.getElementById('cloud-svg-small').style.fontSize = '0px'
         document.getElementById('nav-cloud-box').style.height = originalNavBarHeight
-    
     }
 }
 
+function setOnmouseoverNavBar () {
+    let selectables = document.getElementsByClassName('selectable')
+    Array.prototype.map.call(selectables, function (element) {
+        element.onmouseover = function (event) {
+            Array.prototype.map.call(selectables, function (element) {
+                element.classList.remove('active')
+            })
 
-Array.prototype.map.call(document.getElementsByClassName('selectable'), function (element) {
-    element.onmouseover = function (event) {
-        Array.prototype.map.call(document.getElementsByClassName('selectable'), function (element) {
-            element.classList.remove('active')
-        })
+            element.classList.add('active')
+        }
+    })
+}
 
-        element.classList.add('active')
-    }
-})
+setOnmouseoverNavBar()
+
+
 
 console.log('mem')
 

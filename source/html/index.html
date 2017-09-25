@@ -17,7 +17,7 @@
 
 <body id="page-body">
     <nav class="page-nav-bar">
-        <div class="cloud-box" id="nav-cloud-box">
+        <div class="logo-box" id="nav-cloud-box">
             <!--Contain a fixed background picture of clouds-->
             <div class="nav-constrained shrink">
                 <div class="column-left-wide shrink">
@@ -39,27 +39,151 @@
             </div>
         </div>
          <ul> 
-            <!-- This is where the carosel will be. -->
             <li class="no-width" id="cloud-bottom">
                 <div class="vertical-center-box"  id="left-bottom-cloud-box">
                     <i class="fa fa-cloud not-selectable" aria-hidden="true" id="cloud-svg-small">      &#124;</i>
                 </div>
             </li>
-            <li class="selectable active">Products</li>
-            <li class="selectable">Pricing</li>
-            <li class="selectable">Getting Started</li>
+            <li class="selectable active" id="products-li">Products</li>
+            <li class="selectable" id="pricing-li">Pricing</li>
+            <li class="selectable" id="getting-started-li">Getting Started</li>
         </ul>
     </nav>
 
     <div class="top-box">
     </div>
 
+    <div class="modal-div vertical-center-box" id="factory-modal-pic">
+        <div class="modal-content">
+            <img src="https://i.imgur.com/H3mMRdZ.jpg">
+        </div>
+    </div>
+
     <div class="main-body">
+        <article class="main-content-article" id="product-article">
+            <header class="main-content-header" id="product-header">
+                <h1>Come witness the cloud revolution with our custom cloud solutions!</h1>
+                <h3>Check out some of our products below!</h2>
+            </header>
+            
+            <section class="main-content-section" id="product-factory-pic">
+                <h2>Here's a pic of the factory!</h2>
+                <img src="https://i.imgur.com/H3mMRdZ.jpg" id="normal-factory-pic">
+                <!-- Have modal boyes here -->
+            </section>
+
+            <br>
+            <hr class="divider">
+            <br>
+
+            <!-- This is where we have a dual column layout -->
+            <section class="main-content-section" id="review-section">
+                <h2>Don't believe us? Listen to one of our raving reviews!</h2>
+                <div class="double-column-div">
+                    <div class="column-left" id="left-column-reviews">
+                        <h2>Amazon.com</h2>
+                        <h3>Cloud-Detect</h3>
+                        <p>"Here at Amazon.com, we use Cloud Factory's Cloud-Detect software to detect when a cloud goes over our main office.
+                            We've discovered that our employees get depressed when there are too many clouds in the area, so we use Cloud-Detect
+                            to detect when the cloud factory is going to make clouds, and tell our employees to just stay at home."</p>
+                    </div>
+
+                    <div class="column-right" id="right-column-reviews">
+                        <h2>Microsoft</h2>
+                        <h3>Cloud-Popper</h3>
+                        <p>"In frustration that sheeple won't pay us stupid amounts to use Azure over AWS, we've resorted to purchasing Cloud-Popper 
+                            protection from the cloud factory. This product enables us to send tons of clouds over their headquarters in Seattle, and pops
+                            the clouds over our headquarters, thus, making us have more workable days during the year to squeeze more performance from our workers!"</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <h2>Still not convinced? Look at our list of sponsors!</h2>
+                <div class="carousel-div">
+                    <div class="column-left-skinny vertical-center-box">
+                        <button class="left-button"> &lt;-- </button>
+                    </div>
+
+                    <div class="column-middle-wide vertical-center-box">
+                        <img src="https://static.pexels.com/photos/158163/clouds-cloudporn-weather-lookup-158163.jpeg" class="column-middle-wide">
+                    </div>
+                    
+                    <div class="column-right-skinny vertical-center-box">
+                        <button class="right-button"> --&gt; </button>
+                    </div>
+                </div>
+            </footer>
+
+        </article>
+
+        <br>
+        <hr class="divider">
+        <br>
+
+        <!-- background image here -->
+        <div>
+            <h2>Need some more convincing? Here is a video of our solutions at work!</h2>
+            <div height="512px" width="80%" overflow="hidden">
+                <video height="auto" width="50%%" src="assets/clouds.mp4" autoplay="true" loop="loop"></video>
+            </div>
+        </div>
+
+
+        <br>
+        <hr class="divider">
+        <br>
+
+        <div>
+            <h2>Stay in touch!</h2>
+            <h3>Here is our social media accounts!</h3>
+            <ul>
+                <li>
+                    <div>
+                        <h4>Facebook</h4>
+                    </div>
+                    <div>
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>Google Plus</h4>
+                    </div>
+                    <div>
+                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>Twitter</h4>
+                    </div>
+                    <div>
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>Instagram</h4>
+                    </div>
+                    <div>
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <h4>Piazza</h4>
+                    </div>
+                    <div>
+                        <img class="piazza-pic" src="https://pbs.twimg.com/profile_images/1419243630/twitter_pic_400x400.png">
+                    </div>
+                </li>
+            </ul>
+
+
         <header class="page-header">
 
-            <div height="512px" width="100%" overflow="hidden">
-                <video height="512px" width="100%" src="assets/clouds.mp4" autoplay="true" loop="loop"></video>
-            </div>
+            
             <!-- 
                 Put in a background photo here?
                 I'm thinking, wide, tallish background picture, white text.
@@ -90,12 +214,9 @@
                 </p>
             </aside>
         </div>
-
-
     </div>
 
-
-    <div class="tux-box">
+    <div class="noot-box">
         <h3 class="pingu-text">Just a subtle reminder that our lord and saviour, pingu, is the better version of tux. We've included a picture of
             tux so you can see how big and large he is. </h3>
     </div>
