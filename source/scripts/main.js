@@ -1,6 +1,5 @@
 var originalNavBarHeight = document.getElementById('nav-cloud-box').style.height;
 
-var currentPictureIndex = 0
 var pictureArray = [
     'assets/rails.png',
     'assets/amazon.png',
@@ -35,21 +34,18 @@ function changeCarouselPic(index, right) {
 }
 
 document.getElementById('left-carousel-button').onclick = function () {
-    if (currentPictureIndex === 0) {
-        currentPictureIndex = pictureArray.length - 1
-    } else {
-        currentPictureIndex--;
-    }
-    changeCarouselPic(currentPictureIndex, false)
+    let temp = pictureArray[0]
+    pictureArray.splice(0,1)
+    pictureArray.splice(-1, 0, temp)
+    changeCarouselPic(0, false)
 }
 
 document.getElementById('right-carousel-button').onclick = function () {
-    if (currentPictureIndex === pictureArray.length - 1) {
-        currentPictureIndex = 0
-    } else {
-        currentPictureIndex++;
-    }
-    changeCarouselPic(currentPictureIndex, true)
+    console.log(pictureArray)
+    pictureArray.splice(0,0,pictureArray[pictureArray.length - 1])
+    pictureArray.splice(pictureArray.length - 1, 1)
+    console.log(pictureArray)
+    changeCarouselPic(0, true)
 }
 
 var modal = document.getElementById('factory-modal-pic');
@@ -80,18 +76,57 @@ function highlightLi (element) {
     element.classList.add('active')
 }
 
+var cloudBottom = document.getElementById('cloud-bottom')
+var reviews = document.getElementById('reviews-li')
+var sponsors = document.getElementById('sponsors-li')
+var video = document.getElementById('video-li')
+var contact = document.getElementById('stay-in-contact-li')
+
+var reviewsSection = document.getElementById('review-section')
+var sponsorSection = document.getElementById('sponsor-footer')
+var videoSection = document.getElementById('video-container-picture-box')
+var contactSection = document.getElementById('social-media-div')
+
+var distCloudBottom = 0;
+var distReviews = reviewsSection.offsetTop
+var distSponsors = sponsorSection.offsetTop
+var distVideo = videoSection.offsetTop
+var distContact = contactSection.offsetTop
+
 function changeSelectedByScroll (scrolled) {
-    console.log(scrolled)
-    if (scrolled < 1450) {
-        highlightLi(document.getElementById('reviews-li'))
-    } else if (scrolled < 2200) {
-        highlightLi(document.getElementById('sponsors-li'))
-    } else if (scrolled < 2750) {
-        highlightLi(document.getElementById('video-li'))
+    let realScrolled = scrolled + 100
+
+    if (realScrolled < distReviews) {
+        highlightLi(cloudBottom)
+    } else if (realScrolled < distSponsors) {
+        highlightLi(reviews)
+    } else if (realScrolled < distVideo) {
+        highlightLi(sponsors)
+    } else if (realScrolled < distContact) {
+        highlightLi(video)
     } else {
-        highlightLi(document.getElementById('stay-in-contact-li'))
+        highlightLi(contact)
     }
 }
+
+function setOnclickNavBar () {
+    cloudBottom.onclick = function () {
+        scrollTo(distCloudBottom)
+    }
+    reviews.onclick = function () {
+        scrollTo(distReviews)
+    } 
+    sponsors.onclick = function () {
+        scrollTo(distSponsors)
+    }
+    video.onclick = function () {
+        scrollTo(distVideo)
+    }
+    contact.onclick = function () {
+        scrollTo(distContact)
+    }
+}
+setOnclickNavBar()
 
 function resizeNavBar(shrink) {
     if (shrink) {
@@ -139,7 +174,48 @@ function setOnmouseoverNavBar () {
 
             element.classList.add('active')
         }
+
+        element.onmouseout = function (event) {
+            changeSelectedByScroll(document.body.scrollTop)
+        }
     })
 }
 
+
+
 setOnmouseoverNavBar()
+
+
+var currentScrollY = 0;
+var targetScrollY = 0;
+
+// with help from https://stackoverflow.com/questions/10260666/animate-scrolling-with-css3
+function scrollTo(yPosition, timeToScroll = 10, scrollSpeed = 50) {
+    targetScrollY = yPosition - 100;
+    
+    let screenY = Math.floor(window.scrollY);
+
+    //Scroll Down
+    if (screenY < yPosition) {
+        var scrolling = setInterval(function () {
+            screenY = screenY + scrollSpeed;
+            if (screenY >= targetScrollY) {
+                clearInterval(scrolling);
+                return;
+            }
+            window.scrollTo(0, screenY);
+        }, timeToScroll);
+    }
+
+    //Scroll Up
+    if (screenY > yPosition) {
+        var scrolling = setInterval(function () {
+            screenY = screenY - scrollSpeed;
+            if (screenY <= targetScrollY) {
+                clearInterval(scrolling);
+                return;
+            }
+            window.scrollTo(0, screenY);
+        }, timeToScroll);
+    } 
+}
