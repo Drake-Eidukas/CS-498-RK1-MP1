@@ -7,9 +7,31 @@ var pictureArray = [
     'assets/sodexo.png'
 ]
 
-function changeCarouselPic(index) {
+function changeCarouselPic(index, right) {
     let carousel = document.getElementById('carousel-pic')
-    carousel.src = pictureArray[index]
+    
+    if (right) {
+        carousel.classList.add('slideRight')
+        setTimeout(() => {
+            carousel.classList.remove('slideRight')
+            carousel.src = pictureArray[index]
+            carousel.classList.add('fromLeft')
+            setTimeout(() => {
+                carousel.classList.remove('fromLeft')
+            }, 100)
+        }, 100)
+
+    } else {
+        carousel.classList.add('slideLeft')
+        setTimeout(() => {
+            carousel.classList.remove('slideLeft')
+            carousel.src = pictureArray[index]
+            carousel.classList.add('fromRight')
+            setTimeout(() => {
+                carousel.classList.remove('fromRight')
+            }, 100)
+        }, 100)
+    }
 }
 
 document.getElementById('left-carousel-button').onclick = function () {
@@ -18,7 +40,7 @@ document.getElementById('left-carousel-button').onclick = function () {
     } else {
         currentPictureIndex--;
     }
-    changeCarouselPic(currentPictureIndex)
+    changeCarouselPic(currentPictureIndex, false)
 }
 
 document.getElementById('right-carousel-button').onclick = function () {
@@ -27,7 +49,7 @@ document.getElementById('right-carousel-button').onclick = function () {
     } else {
         currentPictureIndex++;
     }
-    changeCarouselPic(currentPictureIndex)
+    changeCarouselPic(currentPictureIndex, true)
 }
 
 var modal = document.getElementById('factory-modal-pic');
