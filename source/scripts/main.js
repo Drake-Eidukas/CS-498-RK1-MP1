@@ -1,9 +1,9 @@
 var originalNavBarHeight = document.getElementById('nav-cloud-box').style.height;
 
 var pictureArray = [
+    'assets/sodexo.png',
     'assets/rails.png',
-    'assets/amazon.png',
-    'assets/sodexo.png'
+    'assets/amazon.png'
 ]
 
 function changeCarouselPic(index, right) {
@@ -34,22 +34,31 @@ function changeCarouselPic(index, right) {
 }
 
 document.getElementById('left-carousel-button').onclick = function () {
+    // copy first element of array
     let temp = pictureArray[0]
-    pictureArray.splice(0,1)
-    pictureArray.splice(-1, 0, temp)
+
+    // remove first element of array
+    pictureArray.splice(0, 1)
+
+    // insert element into last position of array
+    pictureArray = pictureArray.concat([temp])
+
     changeCarouselPic(0, false)
 }
 
 document.getElementById('right-carousel-button').onclick = function () {
-    console.log(pictureArray)
-    pictureArray.splice(0,0,pictureArray[pictureArray.length - 1])
+    // copy last element of array into first position.
+    pictureArray.splice(0, 0, pictureArray[pictureArray.length - 1])
+    
+    // remove original copy of last element of array
     pictureArray.splice(pictureArray.length - 1, 1)
-    console.log(pictureArray)
+
     changeCarouselPic(0, true)
 }
 
 var modal = document.getElementById('factory-modal-pic');
 modal.style.display = 'none'
+
 var factoryPic = document.getElementById('normal-factory-pic')
 
 factoryPic.onclick = function () {
@@ -191,7 +200,7 @@ var targetScrollY = 0;
 
 // with help from https://stackoverflow.com/questions/10260666/animate-scrolling-with-css3
 function scrollTo(yPosition, timeToScroll = 10, scrollSpeed = 50) {
-    targetScrollY = yPosition - 100;
+    targetScrollY = yPosition - 50;
     
     let screenY = Math.floor(window.scrollY);
 
