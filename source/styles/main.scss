@@ -264,7 +264,7 @@ nav.page-nav-bar {
             vertical-align: middle;
             line-height: $header-height-tall;
             float: left;
-            width: 30%;
+            width: 23%;
             height: $header-height-tall; 
             
             -webkit-transition: width $short-animation-time;
@@ -303,24 +303,6 @@ header.page-header {
     text-align: center;
 }
 
-
-section.about-us-section {
-    float: left;
-    margin: 0 1.5%;
-    width: 63%;
-    text-align: center;
-}
-
-aside.did-you-know {
-    text-align: center;
-    float: right;
-    margin: 0 1.5%;
-    width: 30%;
-    background: $shamrock;
-    border-radius: 32px;
-    top:50%;
-    transform: translateY(20%);
-}
 
 hr {
     float: center;
