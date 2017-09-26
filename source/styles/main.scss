@@ -518,3 +518,11 @@ fromRight
 		-webkit-transform: translateX(0%);
 	}
 }
+
+.close {
+    font-size: 96px;
+    z-index: 25000;
+    float: right;
+    margin-right: 5%;
+    color: $white;
+}

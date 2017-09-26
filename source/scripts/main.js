@@ -71,6 +71,11 @@ window.onclick = function (event) {
     }
 }
 
+document.getElementById('close-button').onclick = function () {
+    console.log('close')
+    modal.style.display = 'none'
+}
+
 document.body.onscroll = function (event) {
     resizeNavBar(document.body.scrollTop > 50)
     changeSelectedByScroll(document.body.scrollTop)
