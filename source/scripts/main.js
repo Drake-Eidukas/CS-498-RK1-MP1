@@ -78,6 +78,7 @@ document.getElementById('close-button').onclick = function () {
 
 document.body.onscroll = function (event) {
     let scrolled = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+    scrolled = document.body.scrollTop
     resizeNavBar(scrolled > 50)
     changeSelectedByScroll(scrolled)
 }
@@ -192,7 +193,7 @@ function setOnmouseoverNavBar () {
         }
 
         element.onmouseout = function (event) {
-            changeSelectedByScroll(document.body.scrollTop)
+            changeSelectedByScroll(window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0)
         }
     })
 }
