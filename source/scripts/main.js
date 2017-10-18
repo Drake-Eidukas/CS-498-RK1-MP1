@@ -78,7 +78,7 @@ document.getElementById('close-button').onclick = function () {
 
 document.body.onscroll = function (event) {
     let scrolled = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-    scrolled = document.body.scrollTop
+    // scrolled = document.body.scrollTop
     resizeNavBar(scrolled > 50)
     changeSelectedByScroll(scrolled)
 }
