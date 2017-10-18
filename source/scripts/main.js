@@ -77,8 +77,9 @@ document.getElementById('close-button').onclick = function () {
 }
 
 document.body.onscroll = function (event) {
-    resizeNavBar(document.body.scrollTop > 50)
-    changeSelectedByScroll(document.body.scrollTop)
+    let scrolled = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+    resizeNavBar(scrolled > 50)
+    changeSelectedByScroll(scrolled)
 }
 
 function highlightLi (element) {
@@ -143,6 +144,7 @@ function setOnclickNavBar () {
 setOnclickNavBar()
 
 function resizeNavBar(shrink) {
+    console.log(shrink)
     if (shrink) {
         // Loop over all elements with class 'shrink', and hide them / make them shrink to 0 height.
         Array.prototype.map.call(document.getElementsByClassName('shrink'), function (element) {
